@@ -1,42 +1,111 @@
 @charset "utf-8";
 
-@import './variables.scss';
+@import "./variables.scss";
+@import "./../../node_modules/ress/dist/ress.min.css";
 
-@import '~bulma/bulma.sass';
-
-
-.image {
-    display: inline-block;
-
-    &.profile {
-        width: 160px;
-        height: 160px;
-    }
-
-    &.sns-logo {
-        width: 40px;
-        height: 40px;
-    }
-
-    &.is-circle {
-        border-radius: 50%;
-
-        .gatsby-image-wrapper {
-            border-radius: 50%;
-        }
-    }
+.layout {
+  background: #f2f2f2;
 }
 
-.d-flex {
-    display: flex;
+.index {
+  position: relative;
+  max-width: 420px;
+  margin: auto;
+  min-height: 100vh;
+  background: url("./../images/profile.jpg") center center / cover no-repeat;
 
-    &.is-centered {
-        justify-content: center;
-    }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: inherit;
+    filter: brightness(80%);
+  }
 
-    &.has-gap {
-        a+a {
-            margin-left: 20px;
-        }
+  .bottom {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    min-height: 35vh;
+    width: 100%;
+    background: #333;
+  }
+
+  .right-bottom {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-height: 50vh;
+    width: 45%;
+    background: #333;
+
+    .white {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      min-height: 30vh;
+      width: 100%;
+      background: #ffffff;
+
+      .social {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+      }
     }
+  }
+}
+
+.title {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  writing-mode: vertical-rl;
+  letter-spacing: 1.5px;
+  transform: rotate(-180deg);
+}
+
+.text {
+  font-size: 24px;
+
+  &.is-large {
+    font-size: 40px;
+  }
+
+  &.has-white {
+    color: #ffffff;
+  }
+}
+
+.social {
+  a:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.image {
+  display: inline-block;
+
+  &.profile {
+    width: 120px;
+    height: 120px;
+  }
+
+  &.logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  &.is-circle {
+    border-radius: 50%;
+
+    .gatsby-image-wrapper {
+      border-radius: 50%;
+    }
+  }
 }

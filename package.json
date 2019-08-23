@@ -5,26 +5,26 @@
   "version": "0.1.0",
   "author": "Katsuya Goto <katsuya.goto.dev@gmail.com>",
   "dependencies": {
-    "bulma": "^0.7.4",
-    "gatsby": "^2.3.34",
-    "gatsby-image": "^2.0.41",
-    "gatsby-plugin-manifest": "^2.0.29",
-    "gatsby-plugin-offline": "^2.0.25",
-    "gatsby-plugin-react-helmet": "^3.0.12",
-    "gatsby-plugin-sass": "^2.0.11",
-    "gatsby-plugin-sharp": "^2.0.35",
-    "gatsby-source-filesystem": "^2.0.33",
-    "gatsby-transformer-sharp": "^2.1.18",
+    "gatsby": "^2.13.77",
+    "gatsby-image": "^2.2.12",
+    "gatsby-plugin-manifest": "^2.2.8",
+    "gatsby-plugin-offline": "^2.2.9",
+    "gatsby-plugin-react-helmet": "^3.1.4",
+    "gatsby-plugin-sass": "^2.1.11",
+    "gatsby-plugin-sharp": "^2.2.16",
+    "gatsby-source-filesystem": "^2.1.14",
+    "gatsby-transformer-sharp": "^2.2.10",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.0",
-    "react-spring": "^8.0.19"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1",
+    "react-pose": "^4.0.8",
+    "ress": "^1.2.2"
   },
   "devDependencies": {
-    "gh-pages": "^2.0.1",
-    "prettier": "^1.17.0"
+    "gh-pages": "^2.1.1",
+    "prettier": "^1.18.2"
   },
   "keywords": [
     "gotokatsuya"
@@ -32,7 +32,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",

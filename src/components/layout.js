@@ -12,7 +12,7 @@ import "./../styles/layout.scss"
 
 const Layout = ({ children }) => (
   <div>
-    <main>{children}</main>
+    <main className="layout">{children}</main>
   </div>
 )
 

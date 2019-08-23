@@ -1,58 +1,91 @@
 import React from "react"
-import { Spring } from 'react-spring/renderprops'
+import posed from "react-pose"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
+import Social from "../components/social"
+
+const Title = posed.h1({
+  init: { y: `25vh`, opacity: 0 },
+  popped: {
+    y: 0,
+    opacity: 1,
+    delay: 100,
+    transition: { duration: 300 },
+  },
+})
+
+const LightGreyDiv = posed.div({
+  init: { y: `50vh`, opacity: 0 },
+  popped: {
+    y: 0,
+    opacity: 1,
+    delay: 200,
+    transition: { duration: 300 },
+  },
+})
+
+const Subtitle = posed.h2({
+  init: { y: `50vh`, opacity: 0 },
+  popped: {
+    y: 0,
+    opacity: 1,
+    delay: 300,
+    transition: { duration: 300 },
+  },
+})
+
+const WhiteDiv = posed.div({
+  init: { y: `30vh`, opacity: 0 },
+  popped: {
+    y: 0,
+    opacity: 1,
+    delay: 600,
+    transition: { duration: 300 },
+  },
+})
 
 class IndexPage extends React.Component {
-
+  state = { isPopped: false }
+  componentDidMount() {
+    this.setState({ isPopped: true })
+  }
   render() {
     return (
       <Layout>
-        <SEO title="Me" keywords={[`gotokatsuya`]} />
-        <section className="hero is-fullheight">
-          <div className="hero-body">
-            <div className="container has-text-centered">
-              <Spring
-                from={{ opacity: 0 }}
-                to={{ opacity: 1 }}
-                config={{ tension: 280, friction: 120, delay: 600 }}>
-                {props =>
-                  <div style={props}>
-                    <div className="image profile is-circle">
-                      <Image filename="profile.jpg" alt="profile" />
-                    </div>
-                    <div style={{ marginTop: `30px` }}>
-                      <h1 className="title is-1">KATSUYA GOTO</h1>
-                    </div>
-                  </div>
-                }
-              </Spring>
-              <div style={{ marginTop: `40px` }} className="d-flex has-gap is-centered">
-                <Spring
-                  from={{ opacity: 0 }}
-                  to={{ opacity: 1 }}
-                  config={{ tension: 280, friction: 120, delay: 600 }}>
-                  {props =>
-                    <div style={props} >
-                      <a className="image sns-logo" href="https://github.com/gotokatsuya">
-                        <Image filename="github-logo.png" alt="github-logo" />
-                      </a>
-                      <a className="image sns-logo" href="https://twitter.com/goka_kun">
-                        <Image filename="tw-logo-2.png" alt="tw-logo" />
-                      </a>
-                      <a className="image sns-logo" href="https://www.facebook.com/katsuya.goto.5">
-                        <Image filename="fb-logo.png" alt="fb-logo" />
-                      </a>
-                    </div>
-                  }
-                </Spring>
-              </div>
-            </div>
-          </div>
-        </section>
-      </Layout >
+        <SEO title="KATSUYA GOTO" keywords={[`gotokatsuya`]} />
+        <div className="index">
+          <div className="bottom" />
+          <LightGreyDiv
+            pose={this.state.isPopped ? "popped" : ""}
+            className="right-bottom"
+          >
+            <Subtitle
+              pose={this.state.isPopped ? "popped" : ""}
+              style={{
+                marginTop: `-20px`,
+                marginLeft: `-40px`,
+              }}
+              className="text has-white"
+            >
+              ENGINEER
+            </Subtitle>
+            <WhiteDiv className="white">
+              <Social
+                style={{ margin: `12px` }}
+                isPopped={this.state.isPopped}
+              />
+            </WhiteDiv>
+          </LightGreyDiv>
+          <Title
+            pose={this.state.isPopped ? "popped" : ""}
+            style={{ marginLeft: `12px` }}
+            className="title text is-large has-white"
+          >
+            KATSUYA GOTO
+          </Title>
+        </div>
+      </Layout>
     )
   }
 }
