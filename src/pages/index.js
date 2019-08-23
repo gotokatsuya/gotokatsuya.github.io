@@ -46,15 +46,19 @@ const WhiteDiv = posed.div({
 })
 
 class IndexPage extends React.Component {
-  state = { isPopped: false }
+  state = { isPopped: false, appHeight: 0 }
   componentDidMount() {
-    this.setState({ isPopped: true })
+    this.setState({ isPopped: true, appHeight: window.innerHeight })
+    window.addEventListener("resize", () => {
+      this.setState({ appHeight: window.innerHeight })
+    })
   }
+  componentWillUnmount = () => window.removeEventListener("resize")
   render() {
     return (
       <Layout>
         <SEO title="KATSUYA GOTO" keywords={[`gotokatsuya`]} />
-        <div className="index">
+        <div className="index" style={{ minHeight: this.state.appHeight }}>
           <div className="bottom" />
           <LightGreyDiv
             pose={this.state.isPopped ? "popped" : ""}
