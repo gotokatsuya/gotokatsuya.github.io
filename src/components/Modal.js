@@ -97,6 +97,7 @@ class Modal extends React.Component {
           style={{
             height: this.props.height,
           }}
+          height={this.props.height}
           onDragEnd={() => {
             this.onDragEnd()
           }}
@@ -157,16 +158,18 @@ const ModalContainer = styled(posed.div())`
 const ModalContent = styled(
   posed.div({
     draggable: "y",
-    dragBounds: { top: 0, bottom: 300 },
+    dragBounds: ({ height }) => {
+      return { top: 0, bottom: parseInt(height) }
+    },
     dragEnd: {
       x: 0,
       y: 0,
       transition: {},
     },
     hidden: {
-      y: `40vh`,
+      y: ({ height }) => height,
       opacity: 0,
-      transition: { duration: 150 },
+      transition: { duration: 200 },
     },
     visible: {
       y: 0,
