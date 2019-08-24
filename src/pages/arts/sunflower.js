@@ -8,6 +8,7 @@ import Modal from "../../components/modal"
 class SunflowerPage extends React.Component {
   state = {
     appHeight: 0,
+    scrollPosition: 0,
     items: [
       {
         name: "Github",
@@ -54,6 +55,10 @@ class SunflowerPage extends React.Component {
     })
   }
 
+  componentWillUnmount() {
+    window.removeEventListener("resize")
+  }
+
   onClickShare = () => {
     this.modal.current.show()
   }
@@ -61,7 +66,7 @@ class SunflowerPage extends React.Component {
   render() {
     return (
       <Layout>
-        <SEO title="Modal" keywords={[`modal`]} />
+        <SEO title="Sunflower" keywords={[`Sunflower`]} />
         <div
           style={{
             minHeight: this.state.appHeight,
@@ -126,6 +131,21 @@ class SunflowerPage extends React.Component {
             title="シェア"
             height="160px"
             items={this.state.items}
+            onOpen={() => {
+              const scrollPosition = Math.max(
+                window.pageYOffset,
+                document.documentElement.scrollTop,
+                document.body.scrollTop
+              )
+              this.setState({ scrollPosition: scrollPosition })
+              document.body.classList.add("is-fixed")
+              document.body.style.top = `${-scrollPosition}px`
+            }}
+            onClose={() => {
+              document.body.classList.remove("is-fixed")
+              document.body.style.top = `0px`
+              window.scrollTo(0, this.state.scrollPosition)
+            }}
           />
         </div>
       </Layout>

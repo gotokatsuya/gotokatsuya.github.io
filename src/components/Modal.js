@@ -23,6 +23,7 @@ class Modal extends React.Component {
       dismissesByDrag: false,
       visibilityStyle: "visible",
     })
+    this.props.onOpen()
   }
 
   onPoseComplete = () => {
@@ -54,6 +55,7 @@ class Modal extends React.Component {
       // this prop should be changed on onPoseComplete
       //  visibilityStyle: "hidden",
     })
+    this.props.onClose()
   }
 
   onChangeDrag = y => {
@@ -225,6 +227,8 @@ Modal.propTypes = {
   title: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onOpen: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
 }
 
 export default Modal
