@@ -36,7 +36,7 @@ const Subtitle = posed.h2({
 })
 
 const WhiteDiv = posed.div({
-  init: { y: `30vh`, opacity: 0 },
+  init: { y: `214px`, opacity: 0 },
   popped: {
     y: 0,
     opacity: 1,
