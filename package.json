@@ -22,7 +22,7 @@
     "react-pose": "^4.0.8",
     "ress": "^1.2.2",
     "styled-components": "^4.3.2",
-    "swiper": "^4.5.0"
+    "swiper": "^6.5.1"
   },
   "devDependencies": {
     "gh-pages": "^2.1.1",
